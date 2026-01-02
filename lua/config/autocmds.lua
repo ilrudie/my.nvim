@@ -6,3 +6,9 @@
 --
 -- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
+
+vim.api.nvim_create_autocmd("FocusLost", {
+  pattern = "*", -- Apply to all files
+  command = "silent !write", -- 'write' saves the buffer, 'silent' avoids messages
+  desc = "Save buffer on focus lost",
+})
